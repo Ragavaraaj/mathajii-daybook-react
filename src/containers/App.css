@@ -1,0 +1,13 @@
+.App {
+  margin : 0px;
+  padding: 0px;
+}
+
+.Custom-Label-Size{
+  font-size: 1rem!important;
+}
+
+.GridButtons {
+  font-size: 17px!important;
+  height : 100px!important;
+}

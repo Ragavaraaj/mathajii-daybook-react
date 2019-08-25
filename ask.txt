@@ -1,0 +1,122 @@
+import React, { Fragment } from 'react'
+import { FormFeedback , Label , Input , FormGroup , Button  } from 'reactstrap'
+import * as acitonType from '../../redux-reducer/actiontype'
+import { connect } from 'react-redux'
+
+class FormAP extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state={
+            moredetail : {
+                show : false,
+                val : "No"
+            }
+        }
+
+    }
+
+    parHandler = (event) => {
+        if(event.target.value === "")
+        {
+            this.props.parStateHandler({ value : event.target.value });
+            return
+        }
+        if(event.target.value.length > 10)
+            this.props.parStateHandler({ invalid : true , value : event.target.value });
+        else
+            this.props.parStateHandler({ valid : true , value : event.target.value });
+    } 
+
+    amtHandler =  (event) => {
+        if(event.target.value === "")
+        {
+            this.props.amtStateHandler({ value : event.target.value });
+            return
+        }
+        if(event.target.value > 50000)
+            this.props.amtStateHandler({ invalid : true , value : event.target.value });
+        else 
+            this.props.amtStateHandler({ valid : true , value : event.target.value });
+        
+    }
+
+    textBoxHandler = () => {
+        this.setState( state => {
+            return{
+                moredetail : {
+                    show : !state.moredetail.show,
+                    val : state.moredetail.show ? "No" : "Yes"
+                }
+            }
+        })
+    }
+
+    render() {
+
+        let textbox = null;
+
+        if(this.state.moredetail.show)
+            textbox = (
+                <FormGroup>
+                    <Label for="more">Enter more details</Label>
+                    <Input type="textarea" name="more" id="more" />
+                </FormGroup>
+            );
+
+        return (
+            <Fragment>
+                <FormGroup>
+                    <Label for="par" className="Custom-Label-Size">Particulars{this.props.particulars}</Label>
+                    <Input 
+                        type="text" 
+                        name="par" 
+                        id="par" 
+                        placeholder="" 
+                        className="Custom-Form-Input" 
+                        onChange={this.parHandler}
+                        {...this.props.particulars}                        
+                    />
+                    <FormFeedback>not more than 10 characters</FormFeedback>
+                </FormGroup>
+                <FormGroup>
+                    <Label for="amount" className="Custom-Label-Size">Amount</Label>
+                    <Input 
+                        type="number"  
+                        name = "amount" 
+                        id="amount" 
+                        placeholder="Amount in Rs." 
+                        step="any" 
+                        className="Custom-Form-Input"
+                        onChange={this.amtHandler}
+                        {...this.props.amount}
+                    />
+                    <FormFeedback>not more than 50000</FormFeedback>
+                </FormGroup>
+                <FormGroup>
+                    <Button color="primary" outline onClick={this.textBoxHandler} block>Do want to add more details : {this.state.moredetail.val}</Button>
+                </FormGroup>
+                {textbox}
+                <FormGroup>
+                    <Button color="success" outline block>Submit</Button>
+                </FormGroup>
+            </Fragment>
+        );
+
+    }
+} 
+
+const mapStateToProps = state => {
+    return {
+        amt : state.amount,
+        par : state.particulars
+    }
+}
+
+const mapDispatchToProps = dispatch => {
+    return {
+        parStateHandler : (value) => dispatch({type : acitonType.CHANGEPAR , changedparticulars : value}),
+        amtStateHandler : (value) => dispatch({type : acitonType.CHANGEAMT , changedamount : value})
+    }
+}
+
+export default connect(mapStateToProps,mapDispatchToProps)(FormAP);
