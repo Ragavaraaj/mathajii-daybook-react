@@ -6,15 +6,7 @@ import FormContainer from './FormContainer/FormContainer'
 
 
 class App extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      username: "",
-      password: ""
-    }
-  }
-
-  render() {
+   render() {
     return (
       <div className="App">
         <Container fluid>

@@ -1,3 +1,4 @@
 export const CHANGE_TITLE = "CHANGE_TITLE"
 export const CHANGE_DATA = "CHANGE_DATA"
+export const CHANGE_FORM_SELECT = "CHANGE_FORM_SELECT"
 

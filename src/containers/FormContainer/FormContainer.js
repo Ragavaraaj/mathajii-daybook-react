@@ -1,9 +1,6 @@
 import React from 'react'
-import FormAP from '../../components/Forms/FormAP';
-import FormPAP from '../../components/Forms/FormPAP';
-import FormI from '../../components/Forms/FormI'
-import ButtonGrid from '../../components/ButtonsGrid/ButtonsGrid'
-import { Form , Col , Row , Container , Button} from 'reactstrap'
+import ButtonFormSelector from '../../components/ButtonsGrid/ButtonFormSelector'
+import { Col , Row , Container , Button} from 'reactstrap'
 
 
 class FormContainer extends React.Component {
@@ -22,40 +19,9 @@ class FormContainer extends React.Component {
                         <Button color="success" outline>>></Button>
                     </Col>
                 </Row>
-                <ButtonGrid />
-                <FormSelector tag="" />
+                <ButtonFormSelector />
             </Container>
         )
     }
 }
-
-const FormSelector = (props) => {
-    switch(props.tag){
-        case 'AP' :
-            return (
-                <Form>
-                    <FormAP noproject={true} />
-                </Form>
-            )
-
-        case 'PAP': 
-            return (
-                <Form>
-                    <FormPAP />
-                </Form>
-            )
-
-        case 'I':
-            return (
-                <Form>
-                    <FormI />
-                </Form>
-            )
-            
-        default :
-            return null
-    }
-}
-
-
 export default FormContainer;
