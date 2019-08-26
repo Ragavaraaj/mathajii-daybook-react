@@ -4,6 +4,7 @@ import { BrowserRouter , Route , Switch} from 'react-router-dom'
 import Menu from '../components/Menu/Menu'
 import FormContainer from './FormContainer/FormContainer'
 import './App.css';
+import WelcomeContainer from './FormContainer/WelcomeContainer';
 
 class App extends React.Component {
    render() {
@@ -12,9 +13,9 @@ class App extends React.Component {
         <div className="App">
           <Container fluid>
             <Menu />
-            {/* <FormContainer /> */}
             <Switch>
-              <Route path="/buttons" exact component={FormContainer} />    
+              <Route path="/buttons" component={FormContainer} />
+              <Route path="/" component={WelcomeContainer} />
             </Switch>
           </Container>
         </div>

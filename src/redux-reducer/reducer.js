@@ -9,11 +9,6 @@ const initialState = {
         amount :  "",
         moredata : "",
     },
-    formselect : {
-        tag : "",
-        clicked : false,
-    }
-
 }
 
 const reducer = (state = initialState , action) =>{
@@ -31,12 +26,6 @@ const reducer = (state = initialState , action) =>{
                     ...state.data, 
                     ...action.payload
                 }
-            }
-        case actionType.CHANGE_FORM_SELECT:
-            return {
-                ...state,
-                title : action.changed_title,
-                formselect : action.changed_formselect
             }
         default :
             return state

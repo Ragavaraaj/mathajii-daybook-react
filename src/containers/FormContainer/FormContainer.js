@@ -1,6 +1,8 @@
 import React from 'react'
-import ButtonFormSelector from '../../components/ButtonsGrid/ButtonFormSelector'
 import { Col , Row , Container , Button} from 'reactstrap'
+import GridButtons from '../../components/ButtonsGrid/GridButtons/GridButtons';
+import { Switch , Route } from 'react-router-dom'
+import FormSelector from '../../components/Forms/FormSelector';
 
 
 class FormContainer extends React.Component {
@@ -19,7 +21,12 @@ class FormContainer extends React.Component {
                         <Button color="success" outline>>></Button>
                     </Col>
                 </Row>
-                    <ButtonFormSelector />
+                <Row className="mt-4">
+                    <Switch>
+                        <Route path="/buttons/:tag" component={FormSelector} />
+                        <Route path="/buttons" component={GridButtons} />
+                    </Switch>
+                </Row>
             </Container>
         )
     }

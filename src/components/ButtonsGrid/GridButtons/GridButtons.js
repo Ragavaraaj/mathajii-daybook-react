@@ -5,7 +5,12 @@ import * as appConst from '../../../AppConst'
 const GridButtons = (props) => {
     return (
         appConst.BUTTON_DATA.map((el , index) => {
-            return <GridButton form={el.tag} key={index} >{el.val}</GridButton>
+            return <GridButton 
+                        form={el.tag} 
+                        key={index} 
+                        url={props.match.url} 
+                        push={props.history.push} 
+                    >{el.val}{console.log(props)}</GridButton>
         })
     )
 }

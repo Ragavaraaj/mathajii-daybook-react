@@ -34,16 +34,16 @@ class Menu extends React.Component {
                             <NavbarToggler onClick={this.toggleNavbar} className="mr-2" />
                             <Collapse isOpen={this.state.collapsed} navbar style={{ zIndex : 1}}>
                                 <Nav navbar>
-                                    <NavItem>
-                                        <NavLink onClick={this.doBoth.bind(this,"Forms")}>
-                                            <LinkNav to="/buttons">FORMS</LinkNav>
-                                        </NavLink>
-                                    </NavItem>
-                                    <NavItem>
-                                        <NavLink onClick={this.doBoth.bind(this,"DayBook")}>
-                                            <LinkNav to="/daybook">DAYBOOK TABLE</LinkNav>
-                                        </NavLink>
-                                    </NavItem>
+                                    <LinkNav to="/buttons" activeClassName={{ textDecoration : "none" }}>
+                                        <NavItem>
+                                            <NavLink onClick={this.doBoth.bind(this,"Forms")}>FORMS</NavLink>
+                                        </NavItem>
+                                    </LinkNav>
+                                    <LinkNav to="/daybook" activeClassName={{ textDecoration: "none" }}>
+                                        <NavItem>
+                                            <NavLink onClick={this.doBoth.bind(this,"DayBook")}>DAYBOOK TABLE</NavLink>
+                                        </NavItem>
+                                    </LinkNav>
                                 </Nav>
                             </Collapse>
                         </Navbar>

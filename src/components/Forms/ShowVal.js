@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button, Modal, ModalHeader, ModalBody, ModalFooter ,Table } from 'reactstrap';
+import { Button, Modal, ModalHeader, ModalBody, ModalFooter ,Table , Container , Row , Col } from 'reactstrap';
 import { connect } from 'react-redux';
 
 const TableRow = (props) => {
@@ -10,10 +10,6 @@ const TableRow = (props) => {
         </tr>
     )
 }
-
-// const TableRows = (props) => {
-//     const keys = Object.keys(props.data)
-// }
 
 const ShowVal = (props) => {
 
@@ -43,8 +39,16 @@ const ShowVal = (props) => {
                 </Table>
             </ModalBody>
           <ModalFooter>
-            <Button color="danger" onClick={props.toggle} block outline>Cancel</Button>
-            <Button color="success" onClick={null} block outline>Submit</Button>
+            <Container fluid>
+                <Row>
+                    <Col xs="6">
+                        <Button color="danger" onClick={props.toggle} block outline>Cancel</Button>
+                    </Col>
+                    <Col xs="6">
+                        <Button color="success" onClick={null} block outline>Submit</Button>
+                    </Col>
+                </Row>
+            </Container>
           </ModalFooter>
         </Modal>
       </div>

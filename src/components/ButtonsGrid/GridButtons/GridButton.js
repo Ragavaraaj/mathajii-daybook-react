@@ -3,34 +3,36 @@ import { Col , Button} from 'reactstrap'
 import * as actionType from '../../../redux-reducer/actiontype'
 import { connect } from 'react-redux'
 
-const GridButton = (props) => {
-    return (
-        <Col xs="6" className="mt-3" key={props.key}>
-            <Button 
-                color="primary" 
-                className="GridButtons"
-                outline 
-                block 
-                onClick={() => props.onChangeFormSelect(props.children , { clicked : !props.clicked , tag : props.form})}
-                key={props.key}
-            >
-            {console.log(props.children)}{props.children}
-            </Button>
-        </Col>
-    );
+class GridButton extends React.Component {
+
+    onClickHandler = (title) =>{
+        this.props.push({pathname : this.props.url + '/' + this.props.form})
+        this.props.onChangeTitle(title)
+    }
+
+    render() {
+        return (
+            <Col xs="6" className="mt-3" key={this.props.key}>
+                <Button 
+                    color="primary" 
+                    className="GridButtons"
+                    outline 
+                    block 
+                    onClick={this.onClickHandler.bind(this,this.props.children)}
+                    key={this.props.key}
+                >
+                {console.log(this.props)}{this.props.children}
+                </Button>
+            </Col>
+        );
+    }
 }
 
-const mapStateToProps = state =>{
-    return {
-        clicked : state.formselect.clicked,
-        tag : state.formselect.tag
-    };
-}
 const mapDispachToProps = dispatch => {
     return {
-        onChangeFormSelect : (title,formselect) => dispatch({type : actionType.CHANGE_FORM_SELECT , changed_title : title, changed_formselect : formselect})
+        onChangeTitle : (title) => dispatch({type : actionType.CHANGE_TITLE , change_title : title})
     }
 
 }
 
-export default connect(mapStateToProps, mapDispachToProps)(GridButton)
+export default connect(null, mapDispachToProps)(GridButton)

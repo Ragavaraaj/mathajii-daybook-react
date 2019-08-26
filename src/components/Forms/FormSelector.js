@@ -5,7 +5,8 @@ import FormPAP from '../Forms/FormPAP';
 import FormI from '../Forms/FormI'
 
 const FormSelector = (props) => {
-    switch(props.tag){
+    console.log(props)
+    switch(props.match.params.tag){
         case 'AP' :
             return (
                 <Col xs="12">
