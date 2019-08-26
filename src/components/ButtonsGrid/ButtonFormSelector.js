@@ -1,8 +1,8 @@
 import React, { Fragment } from 'react'
 import { Row } from 'reactstrap'
 import { connect } from 'react-redux'
-import GridButtons from './GridButtons'
-import FormSelector from './FormSelector'
+import GridButtons from './GridButtons/GridButtons'
+import FormSelector from '../Forms/FormSelector'
 
 
 class ButtonFormSelector extends React.Component {

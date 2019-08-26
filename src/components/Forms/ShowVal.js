@@ -29,7 +29,7 @@ const ShowVal = (props) => {
 
     return (
       <div>
-        <Modal isOpen={props.show} toggle={props.toggle} className={props.className}>
+        <Modal isOpen={props.show} toggle={props.toggle} className={props.className} centered={true}>
         <ModalHeader>Check your entered data</ModalHeader>
             <ModalBody>
                 <Table borderless>

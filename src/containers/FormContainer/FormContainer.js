@@ -19,7 +19,7 @@ class FormContainer extends React.Component {
                         <Button color="success" outline>>></Button>
                     </Col>
                 </Row>
-                <ButtonFormSelector />
+                    <ButtonFormSelector />
             </Container>
         )
     }

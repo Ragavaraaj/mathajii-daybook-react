@@ -154,11 +154,11 @@ class FormAP extends React.Component {
     }
 } 
 
-const mapStateToProps = state => {
-    return {
-        data : state.data
-    }
-}
+// const mapStateToProps = state => {
+//     return {
+//         data : state.data
+//     }
+// }
 
 const mapDispatchToProps = dispatch => {
     return {
@@ -186,4 +186,4 @@ const mapDispatchToProps = dispatch => {
     }
 }
 
-export default connect(mapStateToProps,mapDispatchToProps)(FormAP);
+export default connect(null,mapDispatchToProps)(FormAP);

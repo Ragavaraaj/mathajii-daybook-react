@@ -1,4 +1,5 @@
 import * as actionType from  './actiontype'
+
 const initialState = {
     title : "Hello world",
     data :{
@@ -31,12 +32,12 @@ const reducer = (state = initialState , action) =>{
                     ...action.payload
                 }
             }
-            case actionType.CHANGE_FORM_SELECT:
-                return {
-                    ...state,
-                    title : action.changed_title,
-                    formselect : action.changed_formselect
-                }
+        case actionType.CHANGE_FORM_SELECT:
+            return {
+                ...state,
+                title : action.changed_title,
+                formselect : action.changed_formselect
+            }
         default :
             return state
     }

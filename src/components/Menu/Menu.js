@@ -1,6 +1,7 @@
 import React from 'react'
 import { Col , Row , Collapse, Navbar, NavbarToggler, NavbarBrand, Nav, NavItem, NavLink  } from 'reactstrap';
 import { connect } from 'react-redux'
+import { NavLink as LinkNav } from 'react-router-dom'
 import * as actionType from '../../redux-reducer/actiontype'
 
 class Menu extends React.Component {
@@ -19,20 +20,29 @@ class Menu extends React.Component {
         })
     };
 
+    doBoth = (name) => {
+        this.props.onChangeTitle(name)
+        this.toggleNavbar()
+    }
+
     render() {
             return(
                 <Row>
                     <Col>
                         <Navbar color="faded" light>
-                            <NavbarBrand href="/" className="mr-auto">{this.props.title}</NavbarBrand>
+                            <NavbarBrand className="mr-auto">{this.props.title}</NavbarBrand>
                             <NavbarToggler onClick={this.toggleNavbar} className="mr-2" />
                             <Collapse isOpen={this.state.collapsed} navbar style={{ zIndex : 1}}>
                                 <Nav navbar>
                                     <NavItem>
-                                        <NavLink href="" onClick={this.props.onChangeTitle.bind(this,"Buttons")}>ADD MORE DATA</NavLink>
+                                        <NavLink onClick={this.doBoth.bind(this,"Forms")}>
+                                            <LinkNav to="/buttons">FORMS</LinkNav>
+                                        </NavLink>
                                     </NavItem>
                                     <NavItem>
-                                        <NavLink href="" onClick={this.props.onChangeTitle.bind(this,"Daybook")}>DAYBOOK TABLE</NavLink>
+                                        <NavLink onClick={this.doBoth.bind(this,"DayBook")}>
+                                            <LinkNav to="/daybook">DAYBOOK TABLE</LinkNav>
+                                        </NavLink>
                                     </NavItem>
                                 </Nav>
                             </Collapse>
