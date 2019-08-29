@@ -1,8 +1,8 @@
 import React from 'react'
 import { Col , Row , Container , Button} from 'reactstrap'
-import GridButtons from '../../components/ButtonsGrid/GridButtons/GridButtons';
+import GridButtons from '../../components/ButtonsGrid/GridButtons/GridButtons'
 import { Switch , Route } from 'react-router-dom'
-import FormSelector from '../../components/Forms/FormSelector';
+import FormSelector from '../../components/Forms/FormSelector'
 
 
 class FormContainer extends React.Component {

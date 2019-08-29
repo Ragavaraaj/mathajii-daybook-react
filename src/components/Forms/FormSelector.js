@@ -1,7 +1,7 @@
-import React from 'react';
-import { Form , Col } from 'reactstrap';
-import FormAP from '../Forms/FormAP';
-import FormPAP from '../Forms/FormPAP';
+import React from 'react'
+import { Form , Col } from 'reactstrap'
+import FormAP from '../Forms/FormAP'
+import FormPAP from '../Forms/FormPAP'
 import FormI from '../Forms/FormI'
 
 const FormSelector = (props) => {

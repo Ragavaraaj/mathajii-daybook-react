@@ -2,7 +2,7 @@ import React, { Fragment } from 'react'
 import { FormFeedback , Label , Input , FormGroup , Button  } from 'reactstrap'
 import * as acitonType from '../../redux-reducer/actiontype'
 import { connect } from 'react-redux'
-import ShowVal from './ShowVal';
+import ShowVal from './ShowVal'
 
 class FormAP extends React.Component {
     constructor(props) {

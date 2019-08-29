@@ -1,6 +1,6 @@
-import React from 'react';
-import { Button, Modal, ModalHeader, ModalBody, ModalFooter ,Table , Container , Row , Col } from 'reactstrap';
-import { connect } from 'react-redux';
+import React from 'react'
+import { Button, Modal, ModalHeader, ModalBody, ModalFooter ,Table , Container , Row , Col } from 'reactstrap'
+import { connect } from 'react-redux'
 
 const TableRow = (props) => {
     return (

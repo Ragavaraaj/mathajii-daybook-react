@@ -4,9 +4,9 @@ import { Card , CardText , CardTitle , Container , Row , Col } from 'reactstrap'
 const CustomCard = () =>{
     return (
         <Col xs="6" className="mt-4">
-            <Card body inverse color="info">
+            <Card body outline color="info">
                 <CardTitle>Total Salary Booked</CardTitle>
-                <CardText>{1000}</CardText>
+                <CardText><div style={{ fontSize : "1.5em" }}>{1000}</div></CardText>
             </Card>
          </Col>
     )
