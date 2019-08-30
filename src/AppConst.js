@@ -12,3 +12,12 @@ export const BUTTON_DATA = [
         { val : "Back", tag : "I" },
                         
 ]
+
+export const LINK_DATA = [
+        
+        { name : "Home" , link : "/" },
+        { name : "Forms" , link : "buttons" },
+        { name : "DayBook" , link : "/daybook" },
+        { name : "SalaryBook" , link : "/daybook" },
+        { name : "SPB Book" , link : "/daybook" },
+]
