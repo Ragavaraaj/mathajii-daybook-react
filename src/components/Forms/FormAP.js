@@ -127,6 +127,10 @@ class FormAP extends React.Component {
                     <FormFeedback>not more than 10 characters</FormFeedback>
                 </FormGroup>
                 <FormGroup>
+                    <Button color="primary" outline onClick={this.textBoxHandler} block>Do want to add more details : {this.state.moredetail.val}</Button>
+                </FormGroup>
+                {textbox}
+                <FormGroup>
                     <Label for="amount" className="Custom-Label-Size">Amount</Label>
                     <Input 
                         type="number"  
@@ -140,10 +144,6 @@ class FormAP extends React.Component {
                     />
                     <FormFeedback>not more than 50000</FormFeedback>
                 </FormGroup>
-                <FormGroup>
-                    <Button color="primary" outline onClick={this.textBoxHandler} block>Do want to add more details : {this.state.moredetail.val}</Button>
-                </FormGroup>
-                {textbox}
                 <FormGroup>
                     <Button color="success" outline block onClick={ this.props.noproject ? this.checkValHandler : this.checkFullValHandler }>Submit</Button>
                 </FormGroup>

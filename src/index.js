@@ -9,9 +9,10 @@ import * as serviceWorker from './serviceWorker';
 import './index.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-const store = createStore(reducer)
+const store = createStore(reducer);
+
 const jsx = (
-    <BrowserRouter>
+    <BrowserRouter basename="/test/react/build/">
         <Provider store={store}>
                 <Route component={App}/>
         </Provider>

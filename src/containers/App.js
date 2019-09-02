@@ -26,7 +26,7 @@ class App extends React.Component {
    render() {
     return (
       <CustomSwipe push={this.props.history.push} index={this.state.currentpage} changepage={this.currentpageHandler}>
-        <div>
+        <div className="App">
         <Container fluid>{console.log(this.props)}
           <Menu changepage={this.currentpageHandler}/>
           <Switch>

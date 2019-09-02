@@ -1,3 +1,8 @@
+.App{ 
+  z-index: 2;
+  height: -webkit-fill-available;
+}
+
 .Custom-Label-Size{
   font-size: 1rem!important;
 }
