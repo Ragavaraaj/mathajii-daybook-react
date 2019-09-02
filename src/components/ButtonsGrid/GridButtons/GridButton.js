@@ -21,7 +21,7 @@ class GridButton extends React.Component {
                     onClick={this.onClickHandler.bind(this,this.props.children)}
                     key={this.props.key}
                 >
-                {console.log(this.props)}{this.props.children}
+                {this.props.children}
                 </Button>
             </Col>
         );

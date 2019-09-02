@@ -1,5 +1,5 @@
 import React from 'react'
-import { Col , Row , Collapse, Navbar, NavbarToggler, NavbarBrand, Nav, NavItem, NavLink  } from 'reactstrap';
+import { Col , Row , Collapse, Navbar, NavbarToggler, NavbarBrand, Nav, NavItem } from 'reactstrap';
 import { connect } from 'react-redux'
 import { NavLink as LinkNav } from 'react-router-dom'
 import { LINK_DATA } from '../../AppConst'
@@ -7,11 +7,11 @@ import * as actionType from '../../redux-reducer/actiontype'
 
 const NavLinks = (props) => {
     return (
-        LINK_DATA.map((el) => {
+        LINK_DATA.map((el,index) => {
             return (
-                <LinkNav to={el.link} activeClassName={{ textDecoration : "none" }}>
+                <LinkNav to={el.link} style={{ textDecoration : "none" }} key={index}>
                     <NavItem>
-                        <NavLink onClick={props.clickfun.bind(this,el.name)}>{el.name}</NavLink>
+                        <div className="nav-link" onClick={props.clickfun.bind(this,el.name,index)}>{el.name}</div>
                     </NavItem>
                 </LinkNav>
             )
@@ -35,8 +35,10 @@ class Menu extends React.Component {
         })
     };
 
-    doBoth = (name) => {
+    doBoth = (name,index) => {
+        this.props.changepage(index)
         this.props.onChangeTitle(name)
+        this.props.onChangeAccess()
         this.toggleNavbar()
     }
 
@@ -67,7 +69,8 @@ const mapStateToProps = state =>{
 
 const mapDispachToProps = dispatch => {
     return {
-        onChangeTitle : (value) => dispatch({type : actionType.CHANGE_TITLE , change_title : value})
+        onChangeTitle : (value) => dispatch({type : actionType.CHANGE_TITLE , change_title : value}),
+        onChangeAccess : () => dispatch({type : actionType.CHANGE_ACCESSBYNAV , val : true})
     }
 
 }

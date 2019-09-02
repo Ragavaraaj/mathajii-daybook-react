@@ -10,7 +10,7 @@ const GridButtons = (props) => {
                         key={index} 
                         url={props.match.url} 
                         push={props.history.push} 
-                    >{el.val}{console.log(props)}</GridButton>
+                    >{el.val}</GridButton>
         })
     )
 }

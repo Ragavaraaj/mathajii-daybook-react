@@ -1,36 +1,42 @@
 import React from 'react';
 import { Container } from 'reactstrap'
-import { BrowserRouter , Route , Switch} from 'react-router-dom'
+import { Route , Switch} from 'react-router-dom'
 import Menu from '../components/Menu/Menu'
 import FormContainer from './SubContainer/FormContainer'
 import WelcomeContainer from './SubContainer/WelcomeContainer'
 import DayBookContainer from './SubContainer/DayBookContainer'
-// import { LINK_DATA } from '../AppConst'
 import './App.css';
-
-// const containers = [ WelcomeContainer , FormContainer , DayBookContainer , null , null ]
-
-// const Routes = () => LINK_DATA.reverse.map((el,index) => {
-//   return <Route path={el.link} component={containers[index]} />
-// })
-
+import CustomSwipe from '../components/CustomSwipe/CustomSwipe';
 
 class App extends React.Component {
+  
+  constructor(props){
+    super(props)
+    this.state={
+      currentpage : 0
+    }
+  }
+
+  currentpageHandler = (val) =>{
+    this.setState({
+      currentpage : val
+    })
+  }
+
    render() {
     return (
-      <BrowserRouter>
-        <div className="App">
-          <Container fluid>
-            <Menu />
-            <Switch>
-              {/* <Routes /> */}
-              <Route path="/buttons" component={FormContainer} />
-              <Route path="/daybook" component={DayBookContainer} />
-              <Route path="/" component={WelcomeContainer} />
-            </Switch>
-          </Container>
+      <CustomSwipe push={this.props.history.push} index={this.state.currentpage} changepage={this.currentpageHandler}>
+        <div>
+        <Container fluid>{console.log(this.props)}
+          <Menu changepage={this.currentpageHandler}/>
+          <Switch>
+            <Route path="/buttons" component={FormContainer} />
+            <Route path="/daybook" component={DayBookContainer} />
+            <Route path="/" component={WelcomeContainer} />
+          </Switch>
+        </Container>
         </div>
-      </BrowserRouter>
+      </CustomSwipe>
     );
   }
 }

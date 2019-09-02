@@ -1,9 +1,9 @@
 import React from 'react'
-import { Col , Row , Container , Button} from 'reactstrap'
-import GridButtons from '../../components/ButtonsGrid/GridButtons/GridButtons'
+import { Row , Container } from 'reactstrap'
 import { Switch , Route } from 'react-router-dom'
+import GridButtons from '../../components/ButtonsGrid/GridButtons/GridButtons'
 import FormSelector from '../../components/Forms/FormSelector'
-
+import Fade from 'react-reveal/Fade'
 
 class FormContainer extends React.Component {
     constructor(props){
@@ -15,19 +15,16 @@ class FormContainer extends React.Component {
 
     render() {
         return (
-            <Container className="mt-3">
-                <Row className="justify-content-start">
-                    <Col xs="1" style={{ marginLeft : "0px" , padding : 0}}>
-                        <Button color="success" outline>>></Button>
-                    </Col>
-                </Row>
-                <Row className="mt-4">
-                    <Switch>
-                        <Route path="/buttons/:tag" component={FormSelector} />
-                        <Route path="/buttons" component={GridButtons} />
-                    </Switch>
-                </Row>
-            </Container>
+                <Fade>
+                    <Container className="mt-2">{console.log(this.props)}
+                        <Row>
+                            <Switch>
+                                <Route path="/buttons/:tag" component={FormSelector} />
+                                <Route path="/buttons" component={GridButtons} />
+                            </Switch>
+                        </Row>
+                    </Container>
+                </Fade>
         )
     }
 }

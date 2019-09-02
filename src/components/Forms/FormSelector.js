@@ -9,7 +9,7 @@ const FormSelector = (props) => {
     switch(props.match.params.tag){
         case 'AP' :
             return (
-                <Col xs="12">
+                <Col xs="12" className="mt-4">
                     <Form>
                         <FormAP noproject={true} />
                     </Form>
